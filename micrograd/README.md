@@ -21,8 +21,6 @@ python train.py
 
 ## What I learned
 
-## What I learned
-
 Backpropagation turned out to be a lot more mathematics than it looks like: behind
 every operation there's a local derivative and a chain rule step, but at the same
 time it's far less code than I expected. The entire engine fits in one small file,
