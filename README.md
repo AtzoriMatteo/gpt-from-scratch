@@ -20,7 +20,7 @@ learning project, so the point is being able to explain every line, not producti
 
 - micrograd — done
 - makemore part 1 (bigram) — done
-- makemore part 2 (MLP) — not started
+- makemore part 2 (MLP) — done
 - makemore part 3 (activations, batchnorm) — not started
 - GPT — not started
 

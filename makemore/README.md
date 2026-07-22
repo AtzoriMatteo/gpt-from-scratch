@@ -34,3 +34,15 @@ directly, it's learning something that becomes probabilities after exponentiatin
 normalizing. And the small L2 penalty on `W` during training is doing the exact same job
 as the +1 smoothing in the count table: keep the model from betting everything on one
 bigram it happened to see a lot.
+
+Part 2 (MLP): moving from a single 27x27 table to embeddings + a hidden layer drops the
+loss a lot — 200,000 steps got train loss to 2.1268 and dev to 2.1664, down from ~2.45
+for bigram. Train and dev staying close means it's not really overfitting yet, even with
+11,897 parameters on ~180k training examples. The context window is only 3 characters, so
+the model still can't see very far back, but that's already enough to pick up things like
+double letters and more name-like endings than the bigram model produced.
+
+The embedding table `C` was the interesting part conceptually: 27 characters get squashed
+into a 10-dimensional space and the network decides where to place them, purely from
+gradient signal on next-character prediction. There's no manual feature engineering here,
+the geometry of that space is learned entirely from which characters tend to follow which.
